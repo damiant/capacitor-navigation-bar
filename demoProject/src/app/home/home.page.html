@@ -1,22 +1,19 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            Navigation Bar Plugin
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title> Navigation Bar Plugin </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div class="home-background">
-        <div id="container">
-            Navigation Bar Color: {{ currentColor ? currentColor : 'Not Seted Yet' }}
-            <br/>
-            <div *ngIf="currentStatus">Last Event Fired: {{ currentStatus }}</div>
-            <ion-button (click)="openNavigationBar()">Show Navigation Bar</ion-button>
-            <ion-button (click)="hideNavigationBar()">Hide Navigation Bar</ion-button>
-            <ion-button (click)="changeNavigationBarColor()">Change Navigation Bar Color</ion-button>
-            <ion-button (click)="setTransparentBackground()">Toggle Navigation Bar Transparency</ion-button>
-        </div>
+  <div class="home-background">
+    <div id="container">
+      Navigation Bar Color: {{ currentColor ? currentColor : 'Not Seted Yet' }}
+      <br />
+      <div *ngIf="currentStatus">Last Event Fired: {{ currentStatus }}</div>
+      <ion-button (click)="openNavigationBar()">Show Navigation Bar</ion-button>
+      <ion-button (click)="hideNavigationBar()">Hide Navigation Bar</ion-button>
+      <ion-button (click)="changeNavigationBarColor()">Change Navigation Bar Color</ion-button>
+      <ion-button (click)="setTransparentBackground()">Toggle Navigation Bar Transparency</ion-button>
     </div>
-
+  </div>
 </ion-content>

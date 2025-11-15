@@ -1,6 +1,6 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
 <h3 align="center">Navigation Bar</h3>
-<p align="center"><strong><code>@hugotomazi/capacitor-navigation-bar</code></strong></p>
+<p align="center"><strong><code>@webnativellc/capacitor-navigation-bar</code></strong></p>
 <p align="center">
   Capacitor plugin for Navigation Bar manipulation.
 </p>
@@ -8,10 +8,10 @@
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2024?style=flat-square" />
   <a href="https://github.com/hugotomazi/navigation-bar/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/hugotomazi/navigation-bar/CI/master?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@hugotomazi/capacitor-navigation-bar"><img src="https://img.shields.io/npm/l/@hugotomazi/capacitor-navigation-bar?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@webnativellc/capacitor-navigation-bar"><img src="https://img.shields.io/npm/l/@webnativellc/capacitor-navigation-bar?style=flat-square" /></a>
 <br>
-  <a href="https://www.npmjs.com/package/@hugotomazi/capacitor-navigation-bar"><img src="https://img.shields.io/npm/dw/@hugotomazi/capacitor-navigation-bar?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@hugotomazi/capacitor-navigation-bar"><img src="https://img.shields.io/npm/v/@hugotomazi/capacitor-navigation-bar?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@webnativellc/capacitor-navigation-bar"><img src="https://img.shields.io/npm/dw/@webnativellc/capacitor-navigation-bar?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@webnativellc/capacitor-navigation-bar"><img src="https://img.shields.io/npm/v/@webnativellc/capacitor-navigation-bar?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-5-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -35,7 +35,7 @@
 ## Install
 
 ```bash
-npm install @hugotomazi/capacitor-navigation-bar
+npm install @webnativellc/capacitor-navigation-bar
 npx cap sync
 ```
 
@@ -213,3 +213,24 @@ Event fired after navigation bar color is changed
 | **`COLOR_CHANGE`** | <code>'onColorChange'</code> | Called after navigation bar color is changed |
 
 </docgen-api>
+
+## Changelog
+
+### 7.1.0 (2025-11-15)
+
+#### Features
+
+* **ios:** Add Swift Package Manager (SPM) support ([#XX](https://github.com/hugotomazi/navigation-bar/issues/XX))
+* **ci:** Update CI workflow to match Capacitor Community best practices
+  - Upgraded Node.js from 18 to 20
+  - Upgraded Java from 17 to 21
+  - Updated GitHub Actions to latest versions (v4)
+  - Added dedicated lint job
+  - Updated to macOS 15 runner
+  - Switched to Zulu Java distribution
+
+#### Internal
+
+* Added comprehensive verify scripts for iOS, Android, and Web platforms
+* Improved code quality tooling with ESLint, Prettier, and SwiftLint integration
+
