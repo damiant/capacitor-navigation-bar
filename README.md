@@ -72,6 +72,9 @@ show() => Promise<void>
 
 Display the navigation bar.
 
+Shows the navigation bar if it was previously hidden. This method will animate
+the navigation bar back into view.
+
 --------------------
 
 
@@ -83,6 +86,10 @@ hide() => Promise<void>
 
 Hide the navigation bar.
 
+Hides the navigation bar from view. This is useful for immersive experiences
+like games, video players, or full-screen content. The bar can be temporarily
+revealed by swiping from the bottom of the screen.
+
 --------------------
 
 
@@ -93,11 +100,13 @@ setColor(options: ColorParameters) => Promise<void>
 ```
 
 Change the color of the navigation bar.
-*Support alpha hexadecimal numbers.
 
-| Param         | Type                                                        |
-| ------------- | ----------------------------------------------------------- |
-| **`options`** | <code><a href="#colorparameters">ColorParameters</a></code> |
+Sets a custom background color for the navigation bar. Supports standard hex colors
+as well as alpha (transparency) values for semi-transparent bars.
+
+| Param         | Type                                                        | Description                   |
+| ------------- | ----------------------------------------------------------- | ----------------------------- |
+| **`options`** | <code><a href="#colorparameters">ColorParameters</a></code> | - Color configuration options |
 
 --------------------
 
@@ -108,11 +117,14 @@ Change the color of the navigation bar.
 setTransparency(options: { isTransparent: boolean; }) => Promise<void>
 ```
 
-Set the Transparency
+Set the transparency of the navigation bar.
 
-| Param         | Type                                     |
-| ------------- | ---------------------------------------- |
-| **`options`** | <code>{ isTransparent: boolean; }</code> |
+Makes the navigation bar fully transparent, allowing content to be displayed beneath it.
+This is useful for creating immersive, edge-to-edge layouts.
+
+| Param         | Type                                     | Description                  |
+| ------------- | ---------------------------------------- | ---------------------------- |
+| **`options`** | <code>{ isTransparent: boolean; }</code> | - Transparency configuration |
 
 --------------------
 
@@ -123,7 +135,10 @@ Set the Transparency
 getColor() => Promise<{ color: string; }>
 ```
 
-Gets the current color of the navigation bar in Hexadecimal.
+Gets the current color of the navigation bar.
+
+Retrieves the current background color of the navigation bar as a hexadecimal string.
+This is useful for saving and restoring the navigation bar state.
 
 **Returns:** <code>Promise&lt;{ color: string; }&gt;</code>
 
@@ -136,12 +151,15 @@ Gets the current color of the navigation bar in Hexadecimal.
 addListener(event: NavigationBarPluginEvents.SHOW, listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
-Event fired after navigation bar is displayed
+Listen for navigation bar show events.
 
-| Param              | Type                                                                                 | Description |
-| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
-| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.SHOW</a></code> | The event   |
-| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | Callback    |
+Registers a callback that will be invoked whenever the navigation bar is displayed.
+This can occur when calling show() or through system interactions.
+
+| Param              | Type                                                                                 | Description                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.SHOW</a></code> | - The event type (<a href="#navigationbarpluginevents">NavigationBarPluginEvents.SHOW</a>) |
+| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | - Callback function to execute when the event fires                                        |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
@@ -154,12 +172,15 @@ Event fired after navigation bar is displayed
 addListener(event: NavigationBarPluginEvents.HIDE, listenerFunc: () => void) => Promise<PluginListenerHandle>
 ```
 
-Event fired after navigation bar is hidden
+Listen for navigation bar hide events.
 
-| Param              | Type                                                                                 | Description |
-| ------------------ | ------------------------------------------------------------------------------------ | ----------- |
-| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.HIDE</a></code> | The event   |
-| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | Callback    |
+Registers a callback that will be invoked whenever the navigation bar is hidden.
+This can occur when calling hide() or through system interactions.
+
+| Param              | Type                                                                                 | Description                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.HIDE</a></code> | - The event type (<a href="#navigationbarpluginevents">NavigationBarPluginEvents.HIDE</a>) |
+| **`listenerFunc`** | <code>() =&gt; void</code>                                                           | - Callback function to execute when the event fires                                        |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
@@ -172,12 +193,15 @@ Event fired after navigation bar is hidden
 addListener(event: NavigationBarPluginEvents.COLOR_CHANGE, listenerFunc: (returnObject: { color: string; }) => void) => Promise<PluginListenerHandle>
 ```
 
-Event fired after navigation bar color is changed
+Listen for navigation bar color change events.
 
-| Param              | Type                                                                                         | Description |
-| ------------------ | -------------------------------------------------------------------------------------------- | ----------- |
-| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.COLOR_CHANGE</a></code> | The event   |
-| **`listenerFunc`** | <code>(returnObject: { color: string; }) =&gt; void</code>                                   | Callback    |
+Registers a callback that will be invoked whenever the navigation bar color is changed.
+The callback receives the new color value.
+
+| Param              | Type                                                                                         | Description                                                                                        |
+| ------------------ | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **`event`**        | <code><a href="#navigationbarpluginevents">NavigationBarPluginEvents.COLOR_CHANGE</a></code> | - The event type (<a href="#navigationbarpluginevents">NavigationBarPluginEvents.COLOR_CHANGE</a>) |
+| **`listenerFunc`** | <code>(returnObject: { color: string; }) =&gt; void</code>                                   | - Callback function to execute when the event fires, receives an object with the new color         |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
@@ -189,10 +213,10 @@ Event fired after navigation bar color is changed
 
 #### ColorParameters
 
-| Prop              | Type                 | Description                                                               |
-| ----------------- | -------------------- | ------------------------------------------------------------------------- |
-| **`color`**       | <code>string</code>  | Sets the new color of the navigation bar.                                 |
-| **`darkButtons`** | <code>boolean</code> | Sets whether the default navigation bar buttons should be black or white. |
+| Prop              | Type                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  | Default            |
+| ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| **`color`**       | <code>string</code>  | Sets the new color of the navigation bar. Accepts hexadecimal color values in the following formats: - 6-character hex: '#RRGGBB' (e.g., '#FF0000' for red) - 8-character hex: '#AARRGGBB' (e.g., '#80FF0000' for semi-transparent red) The alpha channel (first two characters in 8-character format) controls transparency: - '00' = fully transparent - '80' = 50% transparent - 'FF' = fully opaque                                      |                    |
+| **`darkButtons`** | <code>boolean</code> | Sets whether the default navigation bar buttons should be black or white. This option controls the color of the system navigation buttons (back, home, recents) to ensure they remain visible against your chosen background color. - `true`: Uses dark/black buttons (recommended for light backgrounds) - `false`: Uses light/white buttons (recommended for dark backgrounds) - `undefined`: System determines button color automatically | <code>false</code> |
 
 
 #### PluginListenerHandle
@@ -207,11 +231,11 @@ Event fired after navigation bar color is changed
 
 #### NavigationBarPluginEvents
 
-| Members            | Value                        | Description                                  |
-| ------------------ | ---------------------------- | -------------------------------------------- |
-| **`SHOW`**         | <code>'onShow'</code>        | Called after the navigation bar is displayed |
-| **`HIDE`**         | <code>'onHide'</code>        | Called after navigation bar is hidden        |
-| **`COLOR_CHANGE`** | <code>'onColorChange'</code> | Called after navigation bar color is changed |
+| Members            | Value                        | Description                                                                                                                                                                                                                 |
+| ------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`SHOW`**         | <code>'onShow'</code>        | Called after the navigation bar is displayed. This event fires when the navigation bar becomes visible, either through a programmatic call to show() or through system interactions (e.g., user swiping to reveal the bar). |
+| **`HIDE`**         | <code>'onHide'</code>        | Called after the navigation bar is hidden. This event fires when the navigation bar becomes hidden, either through a programmatic call to hide() or through system interactions.                                            |
+| **`COLOR_CHANGE`** | <code>'onColorChange'</code> | Called after the navigation bar color is changed. This event fires when the navigation bar background color is updated through a call to setColor(). The event callback receives the new color value.                       |
 
 </docgen-api>
 
