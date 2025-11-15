@@ -213,3 +213,24 @@ Event fired after navigation bar color is changed
 | **`COLOR_CHANGE`** | <code>'onColorChange'</code> | Called after navigation bar color is changed |
 
 </docgen-api>
+
+## Changelog
+
+### 7.1.0 (2025-11-15)
+
+#### Features
+
+* **ios:** Add Swift Package Manager (SPM) support ([#XX](https://github.com/hugotomazi/navigation-bar/issues/XX))
+* **ci:** Update CI workflow to match Capacitor Community best practices
+  - Upgraded Node.js from 18 to 20
+  - Upgraded Java from 17 to 21
+  - Updated GitHub Actions to latest versions (v4)
+  - Added dedicated lint job
+  - Updated to macOS 15 runner
+  - Switched to Zulu Java distribution
+
+#### Internal
+
+* Added comprehensive verify scripts for iOS, Android, and Web platforms
+* Improved code quality tooling with ESLint, Prettier, and SwiftLint integration
+

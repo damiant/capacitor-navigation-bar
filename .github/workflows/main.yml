@@ -4,32 +4,30 @@ on:
   push:
     branches:
       - master
+      - spm-migrate
   pull_request:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 18
-  JDK_VERSION: 17
+  NODE_VERSION: 20
+  JAVA_VERSION: 21
 
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Setup Java JDK  ${{ env.JDK_VERSION }}
-        uses: actions/setup-java@v3.4.1
+      - name: Set up Java ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
         with:
-          # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-          java-version: ${{ env.JDK_VERSION }}
-          # Java distribution. See the list of supported distributions in README file
-          distribution: 'temurin'
-
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
       - name: Install dependencies
         run: npm ci
       - name: Build iOS
@@ -39,7 +37,21 @@ jobs:
       - name: Build Web
         run: npm run verify:web
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
+  lint:
+    name: Lint
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Lint script
+        run: npm run lint
