@@ -7,11 +7,11 @@ import Capacitor
  */
 @objc(NavigationBarPlugin)
 public class NavigationBarPlugin: CAPPlugin, CAPBridgedPlugin {
-    public let identifier = "NavigationBarPlugin" 
-    public let jsName = "NavigationBar" 
+    public let identifier = "NavigationBarPlugin"
+    public let jsName = "NavigationBar"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
-    ] 
+        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+    ]
     private let implementation = NavigationBar()
 
     @objc func echo(_ call: CAPPluginCall) {
