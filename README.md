@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2024?style=flat-square" />
-  <a href="https://github.com/hugotomazi/navigation-bar/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/hugotomazi/navigation-bar/CI/master?style=flat-square" /></a>
+  <a href="https://github.com/damiant/capacitor-navigation-bar/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/damiant/capacitor-navigation-bar/CI/master?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@webnativellc/capacitor-navigation-bar"><img src="https://img.shields.io/npm/l/@webnativellc/capacitor-navigation-bar?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@webnativellc/capacitor-navigation-bar"><img src="https://img.shields.io/npm/dw/@webnativellc/capacitor-navigation-bar?style=flat-square" /></a>
@@ -22,14 +22,15 @@
 </p>
 <br/>
 <p align="center">
-  <img height="450" src="https://github.com/hugotomazi/navigation-bar/blob/master/demoProject/src/assets/example.gif?raw=true">
+  <img height="450" src="https://github.com/damiant/capacitor-navigation-bar/blob/master/demoProject/src/assets/example.gif?raw=true">
 </p>
 
 ## Maintainers
 
-| Maintainer  | GitHub                                      | Social                                                          |
-| ----------- | ------------------------------------------- | --------------------------------------------------------------- |
-| Hugo Tomazi | [hugotomazi](https://github.com/hugotomazi) | [@hugotomazi](https://br.linkedin.com/in/hugo-tomazi-299034101) |
+| Maintainer         | GitHub                                      | Social                                                          |
+| ------------------ | ------------------------------------------- | --------------------------------------------------------------- |
+| Hugo Tomazi        | [hugotomazi](https://github.com/hugotomazi) | [@hugotomazi](https://br.linkedin.com/in/hugo-tomazi-299034101) |
+| Damian Tarnawsky   | [damiant](https://github.com/damiant)       | [@damiant.bsky.social](https://bsky.app/profile/damiant.bsky.social) |
 
 
 ## Install
@@ -220,7 +221,7 @@ Event fired after navigation bar color is changed
 
 #### Features
 
-* **ios:** Add Swift Package Manager (SPM) support ([#XX](https://github.com/hugotomazi/navigation-bar/issues/XX))
+* **ios:** Add Swift Package Manager (SPM) support ([#XX](https://github.com/damiant/capacitor-navigation-bar/issues/XX))
 * **ci:** Update CI workflow to match Capacitor Community best practices
   - Upgraded Node.js from 18 to 20
   - Upgraded Java from 17 to 21
